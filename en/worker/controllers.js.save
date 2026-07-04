@@ -57,8 +57,15 @@ export async function renderCasino(
       env.DB,
       slug
     );
+
   if (!casino) {
-    return render404(request, env);
+  return render404(request, env);
+}
+  if(!casino){
+    return new Response(
+      "Casino not found",
+      {status:404}
+    );
   }
 
   const renderer =
@@ -88,8 +95,12 @@ export async function renderReview(
       env.DB,
       slug
     );
-  if (!review) {
-    return render404(request, env);
+
+  if(!review){
+    return new Response(
+      "Review not found",
+      {status:404}
+    );
   }
 
   const renderer =
@@ -148,8 +159,11 @@ handleAffiliateRedirect(
       slug
     );
 
-  if (!casino) {
-    return render404(request, env);
+  if(!casino){
+    return new Response(
+      "Not Found",
+      {status:404}
+    );
   }
 
   const ipHash =
@@ -261,8 +275,13 @@ export async function renderCountry(
       slug.toUpperCase()
     );
 
-  if (!country) {
-    return render404(request, env);
+  if(!country){
+    return new Response(
+      "Country not found",
+      {
+        status:404
+      }
+    );
   }
 
   const casinoList =
@@ -362,8 +381,13 @@ export async function renderAffiliate(
       slug
     );
 
-  if (!page) {
-    return render404(request, env);
+  if(!page){
+    return new Response(
+      "Affiliate page not found",
+      {
+        status:404
+      }
+    );
   }
 
   const renderer =
@@ -398,8 +422,11 @@ export async function renderDynamicPage(
       slug
     );
 
-  if (!page) {
-    return render404(request, env);
+  if(!page){
+    return new Response(
+      "Not Found",
+      {status:404}
+    );
   }
 
   const renderer =
