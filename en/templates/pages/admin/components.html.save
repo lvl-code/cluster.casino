@@ -29,6 +29,7 @@
     <h2 style="margin-top:40px">Create Component</h2>
     <form id="componentForm" class="admin-form">
       <input type="hidden" name="id" id="componentId" value="">
+
       <div class="form-row">
         <div class="form-group">
           <label>Name *</label>
