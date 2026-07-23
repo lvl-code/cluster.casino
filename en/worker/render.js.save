@@ -94,6 +94,8 @@ export class Renderer {
     };
   }
 
+
+
   async loadNavData() {
     const { getNavItems } = await import("./database/nav.js");
     const { getCached, setCached, CACHE_KEYS } = await import("./cache.js");
@@ -141,6 +143,7 @@ export class Renderer {
       </a>`;
     }).join("\n");
   }
+
 
   buildHeaderNav(items) {
     return items.map(item => {
