@@ -57,7 +57,7 @@ export async function retrieve(env, query, country, plan = null, conversationHis
   const tablesToSearch = plan?.tables || [];
 
   const results = {
-    casinos: [], reviews: [], reviewBlocks: [], news: [], platformUpdates: [],
+    casinos: [], reviews: [], reviewBlocks: [], news: [],
     pages: [], faqs: [], authors: [], countries: [],
     categories: [], seoMeta: [], geoStatuses: {}, casinoCategories: {}
   };
@@ -590,45 +590,6 @@ export function buildContextString(results, country) {
       if (n.author) line += ` | Author: ${n.author}`;
       if (n.published_at) line += ` | Date: ${n.published_at}`;
       line += ` | Link: https://level.casino/en/news/${n.slug}`;
-      parts.push(line);
-    }
-  }
-
-    if (
-    results.platformUpdates &&
-    results.platformUpdates.length > 0
-  ) {
-    parts.push('\n=== PLATFORM UPDATES ===');
-
-    for (const u of results.platformUpdates) {
-      let line = `Title: ${u.title}`;
-
-      if (u.excerpt) {
-        line += ` | Summary: ${u.excerpt}`;
-      }
-
-      if (u.content) {
-        line += ` | Content: ${u.content}`;
-      }
-
-      if (u.author_name) {
-        line += ` | Author: ${u.author_name}`;
-      }
-
-      if (u.author_role) {
-        line += ` | Author Role: ${u.author_role}`;
-      }
-
-      if (u.published_at) {
-        line += ` | Published: ${u.published_at}`;
-      }
-
-      if (u.updated_at) {
-        line += ` | Updated: ${u.updated_at}`;
-      }
-
-      line += ` | Link: https://level.casino/en/updates/${u.slug}`;
-
       parts.push(line);
     }
   }
