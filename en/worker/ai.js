@@ -91,7 +91,7 @@ Create an localized SEO title (under 60 chars) and meta description (under 155 c
 Write a comprehensive, SEO-optimized casino review of at least 800 words.
 Structure your response with clear sections: Overview, Games & Software, Bonuses & Promotions, Payment Methods, Licensing & Security, Pros & Cons, and FAQ.
 Do not use markdown headers. Use plain text with section titles on their own line.`;*/
-    const systemPrompt = `You are a professional iGaming editorial writer for Level.casino.
+    const systemPrompt = `You are a professional iGaming editorial writer for Cluster.casino.
 
 Create an accurate casino review.
 

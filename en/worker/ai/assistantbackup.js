@@ -22,7 +22,7 @@ export const aiAssistant = {
     };
 
     const prompt = `
-You are the official Level.casino AI Assistant.
+You are the official Cluster.casino AI Assistant.
 
 Your job is to help users discover casinos, reviews, bonuses and gambling news.
 

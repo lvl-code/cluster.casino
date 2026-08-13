@@ -1,6 +1,6 @@
 /* =====================================================
    LUMMET AI — Frontend Chat Widget
-   Level.casino AI Intelligence Assistant
+   Cluster.casino AI Intelligence Assistant
    ===================================================== */
 
 (function () {
@@ -56,7 +56,7 @@
           <div class="lummet-ai-welcome">
             <div class="lummet-ai-welcome-icon">✦</div>
             <h4>Hi, I'm Lummet AI</h4>
-            <p>I can help you explore casino reviews, compare casinos, check bonuses, and find information on Level.casino.</p>
+            <p>I can help you explore casino reviews, compare casinos, check bonuses, and find information on Cluster.casino.</p>
           </div>
           <div class="lummet-ai-suggestions">
             <button class="lummet-ai-suggestion-chip" data-prompt="Show me the best casinos">Best casinos</button>
@@ -77,7 +77,7 @@
         </div>
 
         <div class="lummet-ai-footer">
-          Powered by <a href="https://level.casino">Level.casino</a> · Editorial content only · 18+
+          Powered by <a href="https://cluster.casino">Cluster.casino</a> · Editorial content only · 18+
         </div>
       </div>
     `;
@@ -314,7 +314,7 @@
       <div class="lummet-ai-welcome">
         <div class="lummet-ai-welcome-icon">✦</div>
         <h4>Hi, I'm Lummet AI</h4>
-        <p>I can help you explore casino reviews, compare casinos, check bonuses, and find information on Level.casino.</p>
+        <p>I can help you explore casino reviews, compare casinos, check bonuses, and find information on Cluster.casino.</p>
       </div>
       <div class="lummet-ai-suggestions">
         <button class="lummet-ai-suggestion-chip" data-prompt="Show me the best casinos">Best casinos</button>

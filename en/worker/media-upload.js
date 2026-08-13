@@ -341,7 +341,7 @@ export async function handleUpload(request, env, user) {
         });
 
         // Generate public URL
-        const requestHost = request.headers.get('host') || 'level.casino';
+        const requestHost = request.headers.get('host') || 'cluster.casino';
         const publicUrl = generatePublicUrl(r2Key, requestHost);
 
         // Generate thumbnail URLs for images

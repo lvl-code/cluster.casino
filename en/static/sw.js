@@ -1,4 +1,4 @@
-const CACHE_NAME = "levelcasino-v1";
+const CACHE_NAME = "clustercasino-v1";
 
 const STATIC_ASSETS = [
   "/",

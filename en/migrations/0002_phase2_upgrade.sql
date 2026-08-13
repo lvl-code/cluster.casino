@@ -1,5 +1,5 @@
 -- ==========================================
--- LEVEL.CASINO PHASE 2 UPGRADE
+-- CLUSTER.CASINO PHASE 2 UPGRADE
 -- ==========================================
 
 -- CASINOS

@@ -86,7 +86,7 @@ export default {
     const url = new URL(request.url);
 
     // ── Check if this is the Lummet subdomain ──
-    if (url.hostname === 'lummet.level.casino') {
+    if (url.hostname === 'lummet.cluster.casino') {
       const lummetResponse = await handleLummetRequest(request, env, ctx);
       if (lummetResponse) return lummetResponse;
     }

@@ -1,5 +1,5 @@
 // =====================================================
-// LEVELCASINO FRONTEND APP
+// CLUSTERCASINO FRONTEND APP
 // =====================================================
 document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();

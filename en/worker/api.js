@@ -1,5 +1,5 @@
 // =====================================================
-// LEVELCASINO API v1
+// CLUSTERCASINO API v1
 // Cloudflare Worker Controller Layer
 // =====================================================
 import * as authorsDB from "./database/authors.js";

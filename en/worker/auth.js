@@ -1,5 +1,5 @@
 // =====================================================
-// LEVELCASINO AUTH SYSTEM
+// CLUSTERCASINO AUTH SYSTEM
 // Cloudflare Worker + D1
 // =====================================================
 

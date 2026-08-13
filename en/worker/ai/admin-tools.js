@@ -8,7 +8,7 @@ const MODEL = '@cf/zai-org/glm-4.7-flash';
  * Generate a full casino review (admin tool)
  */
 export async function generateReview(env, casinoName, countryCode, slug) {
-  const systemPrompt = `You are a professional iGaming editorial writer for Level.casino.
+  const systemPrompt = `You are a professional iGaming editorial writer for Cluster.casino.
 
 Create an accurate casino review.
 
@@ -94,7 +94,7 @@ Create a localized SEO title (under 60 chars) and meta description (under 155 ch
  * Generate FAQ entries (admin tool)
  */
 export async function generateFAQs(env, casinoName, context = '') {
-  const systemPrompt = `You are an iGaming FAQ generator for Level.casino. Generate 5 common questions and answers about a casino.
+  const systemPrompt = `You are an iGaming FAQ generator for Cluster.casino. Generate 5 common questions and answers about a casino.
 Return a JSON array of objects with "q" and "a" fields. No code blocks, no markdown. Raw JSON only.`;
 
   const userPrompt = `Generate 5 FAQs for "${casinoName}". Context: ${context}. Each answer should be factual and concise (2-3 sentences).`;
@@ -152,7 +152,7 @@ Return raw JSON only. No code blocks, no markdown.`;
  * Generate article outline (admin tool)
  */
 export async function generateOutline(env, topic, contentType = 'review') {
-  const systemPrompt = `You are an editorial planner for Level.casino. Generate a detailed article outline.
+  const systemPrompt = `You are an editorial planner for Cluster.casino. Generate a detailed article outline.
 Return as a JSON array of section objects with "title" and "points" (array of bullet points). Raw JSON only.`;
 
   const userPrompt = `Generate an outline for a ${contentType} article about: ${topic}`;
@@ -188,7 +188,7 @@ export async function improveContent(env, content, improvementType = 'readabilit
     tone: 'Improve editorial tone to be more professional and neutral. Keep all facts.'
   };
 
-  const systemPrompt = `You are an editorial editor for Level.casino. ${prompts[improvementType] || prompts.readability}
+  const systemPrompt = `You are an editorial editor for Cluster.casino. ${prompts[improvementType] || prompts.readability}
 Return only the improved text. No explanations, no markdown.`;
 
   try {

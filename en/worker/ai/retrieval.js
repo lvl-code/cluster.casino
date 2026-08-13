@@ -1,7 +1,7 @@
 // =====================================================
 // LUMMET AI — Database Retrieval (RAG Layer)
 // Accepts LLM-generated search plan for smarter queries
-// Schema-matched to Level.casino D1 production tables
+// Schema-matched to Cluster.casino D1 production tables
 // =====================================================
 
 const MAX_RESULTS = 8;
@@ -551,7 +551,7 @@ export function buildContextString(results, country) {
       if (c.license) line += ` | License: ${c.license}`;
       if (c.owner) line += ` | Owner: ${c.owner}`;
       line += ` | ${geoLabel} in ${country || 'user country'}`;
-      line += ` | Link: https://level.casino/en/casino/${c.slug}`;
+      line += ` | Link: https://cluster.casino/en/casino/${c.slug}`;
       if (c.parsedFeatures && c.parsedFeatures.length > 0) line += ` | Features: ${c.parsedFeatures.join(', ')}`;
       if (results.casinoCategories && results.casinoCategories[c.slug]) line += ` | Categories: ${results.casinoCategories[c.slug].map(cat => cat.name).join(', ')}`;
       parts.push(line);
@@ -571,7 +571,7 @@ export function buildContextString(results, country) {
       if (r.bonuses) line += ` | Bonuses: ${r.bonuses}`;
       if (r.payments) line += ` | Payments: ${r.payments}`;
       if (r.licenses) line += ` | Licenses: ${r.licenses}`;
-      line += ` | Link: https://level.casino/en/review/${r.slug}`;
+      line += ` | Link: https://cluster.casino/en/review/${r.slug}`;
       if (r.faqs && r.faqs.length > 0) line += ` | FAQ: ${r.faqs.map(f => `Q:${f.q || f.question} A:${f.a || f.answer}`).join('; ')}`;
       parts.push(line);
     }
@@ -589,7 +589,7 @@ export function buildContextString(results, country) {
       if (n.excerpt) line += ` | Excerpt: ${n.excerpt}`;
       if (n.author) line += ` | Author: ${n.author}`;
       if (n.published_at) line += ` | Date: ${n.published_at}`;
-      line += ` | Link: https://level.casino/en/news/${n.slug}`;
+      line += ` | Link: https://cluster.casino/en/news/${n.slug}`;
       parts.push(line);
     }
   }
@@ -627,7 +627,7 @@ export function buildContextString(results, country) {
         line += ` | Updated: ${u.updated_at}`;
       }
 
-      line += ` | Link: https://level.casino/en/updates/${u.slug}`;
+      line += ` | Link: https://cluster.casino/en/updates/${u.slug}`;
 
       parts.push(line);
     }
@@ -635,7 +635,7 @@ export function buildContextString(results, country) {
 
   if (results.pages && results.pages.length > 0) {
     parts.push('\n=== PAGES ===');
-    for (const p of results.pages) parts.push(`Title: ${p.title} | Type: ${p.type || 'page'} | Link: https://level.casino/en/${p.slug}`);
+    for (const p of results.pages) parts.push(`Title: ${p.title} | Type: ${p.type || 'page'} | Link: https://cluster.casino/en/${p.slug}`);
   }
 
   if (results.faqs && results.faqs.length > 0) {
@@ -645,7 +645,7 @@ export function buildContextString(results, country) {
 
   if (results.authors && results.authors.length > 0) {
     parts.push('\n=== AUTHORS ===');
-    for (const a of results.authors) parts.push(`Name: ${a.name} | Role: ${a.role || 'Editor'} | Bio: ${a.bio || ''} | Profile: https://level.casino/en/author/${a.slug}`);
+    for (const a of results.authors) parts.push(`Name: ${a.name} | Role: ${a.role || 'Editor'} | Bio: ${a.bio || ''} | Profile: https://cluster.casino/en/author/${a.slug}`);
   }
 
   if (results.countries && results.countries.length > 0) {
@@ -655,7 +655,7 @@ export function buildContextString(results, country) {
 
   if (results.categories && results.categories.length > 0) {
     parts.push('\n=== CATEGORIES ===');
-    for (const c of results.categories) parts.push(`Category: ${c.name} | Link: https://level.casino/en/category/${c.slug}`);
+    for (const c of results.categories) parts.push(`Category: ${c.name} | Link: https://cluster.casino/en/category/${c.slug}`);
   }
 
   if (results.seoMeta && results.seoMeta.length > 0) {
@@ -663,6 +663,6 @@ export function buildContextString(results, country) {
     for (const s of results.seoMeta) parts.push(`Page: ${s.title} | Type: ${s.page_type} | Slug: ${s.page_slug} | Description: ${s.description || ''}`);
   }
 
-  return parts.length > 0 ? parts.join('\n') : 'No relevant information found in the Level.casino database.';
+  return parts.length > 0 ? parts.join('\n') : 'No relevant information found in the Cluster.casino database.';
 }
 

@@ -20,7 +20,7 @@ const SCHEMA_DESCRIPTION = `Database tables and columns:
 - categories: name, slug, description
 - geo_rules: casino_slug, country_code, status, bonus_override`;
 
-const SYSTEM_PROMPT = `You are a search query analyzer for Level.casino, an independent online casino comparison platform.
+const SYSTEM_PROMPT = `You are a search query analyzer for Cluster.casino, an independent online casino comparison platform.
 
 Analyze the user's message and determine what information they need from the database. Consider the conversation history to resolve references like "it", "that one", "the first one", "compare it with...".
 
@@ -47,15 +47,15 @@ Examples:
 "What casinos are available in Canada?" → {"intent":"geo","search_terms":[],"casino_names":[],"country_code":"CA","is_listing":true,"is_comparison":false,"tables":["casinos","countries"]}
 "Tell me about Stake" → {"intent":"casino_search","search_terms":["stake"],"casino_names":["Stake"],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["casinos","reviews"]}
 "Compare Stake vs BC.Game" → {"intent":"casino_compare","search_terms":["stake","bc game"],"casino_names":["Stake","BC.Game"],"country_code":null,"is_listing":false,"is_comparison":true,"tables":["casinos","reviews"]}
-"What is Level.casino?" → {"intent":"navigation","search_terms":["level.casino"],"casino_names":[],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["pages"]}
+"What is Cluster.casino?" → {"intent":"navigation","search_terms":["cluster.casino"],"casino_names":[],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["pages"]}
 "Any crypto casinos?" → {"intent":"crypto","search_terms":["crypto"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["casinos"]}
 "stak bonus" → {"intent":"bonuses","search_terms":["stake","bonus"],"casino_names":["Stake"],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["casinos"]}
 "which 1 can i play in rwanda" → {"intent":"geo","search_terms":[],"casino_names":[],"country_code":"RW","is_listing":true,"is_comparison":false,"tables":["casinos","countries"]}
 "what about the first one" → {"intent":"casino_search","search_terms":[],"casino_names":[],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["casinos","reviews"]}
-"What changed on Level.casino?" → {"intent":"platform_update","search_terms":["changed","level.casino"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
-"What's new on Level.casino?" → {"intent":"platform_update","search_terms":["new","level.casino"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
+"What changed on Cluster.casino?" → {"intent":"platform_update","search_terms":["changed","cluster.casino"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
+"What's new on Cluster.casino?" → {"intent":"platform_update","search_terms":["new","cluster.casino"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
 "Show me the latest platform updates" → {"intent":"platform_update","search_terms":["latest","platform","updates"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
-"Tell me about the latest Level.casino update" → {"intent":"platform_update","search_terms":["latest","level.casino","update"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
+"Tell me about the latest Cluster.casino update" → {"intent":"platform_update","search_terms":["latest","cluster.casino","update"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
 "What new features were added?" → {"intent":"platform_update","search_terms":["new","features","added"],"casino_names":[],"country_code":null,"is_listing":true,"is_comparison":false,"tables":["platform_updates"]}
 "What changed with the component engine?" → {"intent":"platform_update","search_terms":["component","engine"],"casino_names":[],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["platform_updates"]}
 "When was the component engine launched?" → {"intent":"platform_update","search_terms":["component","engine","launched"],"casino_names":[],"country_code":null,"is_listing":false,"is_comparison":false,"tables":["platform_updates"]}

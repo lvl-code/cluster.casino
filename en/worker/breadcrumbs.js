@@ -1,5 +1,5 @@
 // =====================================================
-// LEVEL.CASINO BREADCRUMB ENGINE
+// CLUSTER.CASINO BREADCRUMB ENGINE
 // =====================================================
 
 const ROUTES = {
@@ -160,7 +160,7 @@ export function buildBreadcrumbSchemabackup(crumbs = []) {
       position: index + 1,
       name: crumb.label,
       item: crumb.url
-        ? `https://level.casino${crumb.url}`
+        ? `https://cluster.casino${crumb.url}`
         : undefined
     }))
   };
@@ -181,7 +181,7 @@ export function buildBreadcrumbSchema(crumbs = []) {
       };
 
       if (crumb.url) {
-        item.item = `https://level.casino${crumb.url}`;
+        item.item = `https://cluster.casino${crumb.url}`;
       }
 
       return item;

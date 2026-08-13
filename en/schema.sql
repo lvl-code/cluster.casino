@@ -1,5 +1,5 @@
 -- =====================================================
--- LEVELCASINO CMS
+-- CLUSTERCASINO CMS
 -- Cloudflare D1 Schema v1
 -- =====================================================
 
@@ -383,7 +383,7 @@ CREATE TABLE affiliates (
 );
 
 -- ==========================================
--- LEVEL.CASINO PHASE 2 UPGRADE
+-- CLUSTER.CASINO PHASE 2 UPGRADE
 -- ==========================================
 
 -- CASINOS

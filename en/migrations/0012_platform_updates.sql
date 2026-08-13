@@ -1,6 +1,6 @@
 -- =====================================================
 -- MIGRATION 0012 — PLATFORM UPDATES
--- Internal Level.casino platform updates
+-- Internal Cluster.casino platform updates
 -- =====================================================
 
 PRAGMA foreign_keys = ON;

@@ -333,7 +333,7 @@ export async function handleAiCommand(request, env) {
         const casinos = await env.DB.prepare(`SELECT slug, name FROM casinos WHERE (seo_title IS NULL OR seo_title = '') AND published = 1 LIMIT 20`).all();
         let count = 0;
         for (const casino of (casinos.results || [])) {
-          const seo = await generateSeo(env, 'level.casino', { type: 'casino', slug: casino.slug, country: 'Global' });
+          const seo = await generateSeo(env, 'cluster.casino', { type: 'casino', slug: casino.slug, country: 'Global' });
           if (seo) {
             await env.DB.prepare(`UPDATE casinos SET seo_title = ?, seo_description = ? WHERE slug = ?`).bind(seo.title, seo.description, casino.slug).run();
             count++;
@@ -377,7 +377,7 @@ export async function handleBulkSEO(request, env) {
   const casinos = await env.DB.prepare(`SELECT slug, name FROM casinos WHERE (seo_title IS NULL OR seo_title = '') AND published = 1 LIMIT 20`).all();
   let count = 0;
   for (const casino of (casinos.results || [])) {
-    const seo = await generateSeo(env, 'level.casino', { type: 'casino', slug: casino.slug, country: 'Global' });
+    const seo = await generateSeo(env, 'cluster.casino', { type: 'casino', slug: casino.slug, country: 'Global' });
     if (seo) {
       await env.DB.prepare(`UPDATE casinos SET seo_title = ?, seo_description = ? WHERE slug = ?`).bind(seo.title, seo.description, casino.slug).run();
       count++;

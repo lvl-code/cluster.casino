@@ -45,7 +45,7 @@ export async function chat(env, message, userContext = {}) {
   if (injection.isInjection) {
     return {
       success: true,
-      answer: "I'm Lummet AI, here to help you explore Level.casino's editorial content. I can help you find casino reviews, compare casinos, check bonuses, or answer questions about payment methods. What would you like to know?",
+      answer: "I'm Lummet AI, here to help you explore Cluster.casino's editorial content. I can help you find casino reviews, compare casinos, check bonuses, or answer questions about payment methods. What would you like to know?",
       intent: 'security_block'
     };
   }
@@ -124,7 +124,7 @@ export async function chatStream(env, message, userContext = {}) {
   const injection = detectInjection(sanitized);
   if (injection.isInjection) {
     return createSSEStream([
-      { type: 'delta', content: "I'm Lummet AI, here to help you explore Level.casino's editorial content. What would you like to know?" },
+      { type: 'delta', content: "I'm Lummet AI, here to help you explore Cluster.casino's editorial content. What would you like to know?" },
       { type: 'done' }
     ]);
   }
@@ -243,28 +243,28 @@ function generateFallback(message, context, country) {
       const available = context.casinos.filter(c => context.geoStatuses[c.slug] === 'allowed');
       const blocked = context.casinos.filter(c => context.geoStatuses[c.slug] === 'blocked');
       if (available.length > 0) {
-        const list = available.slice(0, 5).map((c, i) => `${i + 1}. **${c.name}** — ⭐ ${c.rating || 'N/A'}/5${c.bonus_title ? ` — ${c.bonus_title}` : ''}\n   🔗 https://level.casino/en/casino/${c.slug}`).join('\n\n');
-        return `Here are the casinos available in ${countryNameStr} according to the Level.casino database:\n\n${list}\n\nWould you like me to show you the full review for any of these?`;
+        const list = available.slice(0, 5).map((c, i) => `${i + 1}. **${c.name}** — ⭐ ${c.rating || 'N/A'}/5${c.bonus_title ? ` — ${c.bonus_title}` : ''}\n   🔗 https://cluster.casino/en/casino/${c.slug}`).join('\n\n');
+        return `Here are the casinos available in ${countryNameStr} according to the Cluster.casino database:\n\n${list}\n\nWould you like me to show you the full review for any of these?`;
       } else if (blocked.length > 0) {
-        return `Based on the Level.casino database, the casinos I found are not available in ${countryNameStr}. You can browse all casinos at https://level.casino/en/casinos to check for alternatives.`;
+        return `Based on the Cluster.casino database, the casinos I found are not available in ${countryNameStr}. You can browse all casinos at https://cluster.casino/en/casino to check for alternatives.`;
       }
     }
     const list = context.casinos.slice(0, 5).map((c, i) => {
       const geo = context.geoStatuses[c.slug];
       const geoStr = geo === 'allowed' ? ' ✓ Available' : geo === 'blocked' ? ' ✕ Not available' : '';
-      return `${i + 1}. **${c.name}** — ⭐ ${c.rating || 'N/A'}/5${c.bonus_title ? ` — ${c.bonus_title}` : ''}${c.license ? ` — ${c.license}` : ''}${geoStr}\n   🔗 https://level.casino/en/casino/${c.slug}`;
+      return `${i + 1}. **${c.name}** — ⭐ ${c.rating || 'N/A'}/5${c.bonus_title ? ` — ${c.bonus_title}` : ''}${c.license ? ` — ${c.license}` : ''}${geoStr}\n   🔗 https://cluster.casino/en/casino/${c.slug}`;
     }).join('\n\n');
-    return `Here are the casinos I found on Level.casino:\n\n${list}\n\nI can also show you reviews, bonuses, or payment details for any of these.`;
+    return `Here are the casinos I found on Cluster.casino:\n\n${list}\n\nI can also show you reviews, bonuses, or payment details for any of these.`;
   }
 
   if (context.reviews && context.reviews.length > 0) {
-    const list = context.reviews.slice(0, 5).map((r, i) => `${i + 1}. **${r.title}** — ⭐ ${r.rating || 'N/A'}/5${r.overview ? `\n   ${r.overview}` : ''}\n   🔗 https://level.casino/en/review/${r.slug}`).join('\n\n');
-    return `Here are the casino reviews I found on Level.casino:\n\n${list}\n\nWould you like me to summarize any of these reviews?`;
+    const list = context.reviews.slice(0, 5).map((r, i) => `${i + 1}. **${r.title}** — ⭐ ${r.rating || 'N/A'}/5${r.overview ? `\n   ${r.overview}` : ''}\n   🔗 https://cluster.casino/en/review/${r.slug}`).join('\n\n');
+    return `Here are the casino reviews I found on Cluster.casino:\n\n${list}\n\nWould you like me to summarize any of these reviews?`;
   }
 
   if (context.news && context.news.length > 0) {
-    const list = context.news.slice(0, 5).map((n, i) => `${i + 1}. **${n.title}**${n.excerpt ? `\n   ${n.excerpt}` : ''}\n   🔗 https://level.casino/en/news/${n.slug}`).join('\n\n');
-    return `Here are the latest articles from Level.casino:\n\n${list}\n\nWould you like to know more about any of these?`;
+    const list = context.news.slice(0, 5).map((n, i) => `${i + 1}. **${n.title}**${n.excerpt ? `\n   ${n.excerpt}` : ''}\n   🔗 https://cluster.casino/en/news/${n.slug}`).join('\n\n');
+    return `Here are the latest articles from Cluster.casino:\n\n${list}\n\nWould you like to know more about any of these?`;
   }
 
   if (context.faqs && context.faqs.length > 0) {
@@ -274,13 +274,13 @@ function generateFallback(message, context, country) {
   }
 
   if (context.pages && context.pages.length > 0) {
-    const list = context.pages.slice(0, 5).map((p, i) => `${i + 1}. **${p.title}** — 🔗 https://level.casino/en/${p.slug}`).join('\n\n');
-    return `Here are the pages I found on Level.casino:\n\n${list}\n\nWould you like to explore any of these?`;
+    const list = context.pages.slice(0, 5).map((p, i) => `${i + 1}. **${p.title}** — 🔗 https://cluster.casino/en/${p.slug}`).join('\n\n');
+    return `Here are the pages I found on Cluster.casino:\n\n${list}\n\nWould you like to explore any of these?`;
   }
 
   if (context.authors && context.authors.length > 0) {
-    const list = context.authors.slice(0, 5).map((a, i) => `${i + 1}. **${a.name}** — ${a.role || 'Editor'}${a.bio ? `\n   ${a.bio}` : ''}\n   🔗 https://level.casino/en/author/${a.slug}`).join('\n\n');
-    return `Here are the authors I found on Level.casino:\n\n${list}`;
+    const list = context.authors.slice(0, 5).map((a, i) => `${i + 1}. **${a.name}** — ${a.role || 'Editor'}${a.bio ? `\n   ${a.bio}` : ''}\n   🔗 https://cluster.casino/en/author/${a.slug}`).join('\n\n');
+    return `Here are the authors I found on Cluster.casino:\n\n${list}`;
   }
 
   if (context.countries && context.countries.length > 0) {
@@ -288,7 +288,7 @@ function generateFallback(message, context, country) {
     return `**${c.name} (${c.code})**\n\n- Currency: ${c.currency || 'N/A'}\n- Language: ${c.language || 'N/A'}\n- Legal Status: ${c.legal_status || 'N/A'}\n\nWould you like to see casinos available in ${c.name}?`;
   }
 
-  return `I couldn't find that information in the Level.casino database. You can browse our independent casino reviews, guides, news, and responsible gambling resources at https://level.casino/en/ — or contact us at elie@level.casino and we'll be happy to help.`;
+  return `I couldn't find that information in the Cluster.casino database. You can browse our independent casino reviews, guides, news, and responsible gambling resources at https://cluster.casino/en/ — or contact us at elie@cluster.casino and we'll be happy to help.`;
 }
 
 export const aiAssistant = {

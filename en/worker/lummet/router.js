@@ -1,6 +1,6 @@
 // =====================================================
 // LUMMET AI — Subdomain Router
-// Handles routing for lummet.level.casino
+// Handles routing for lummet.cluster.casino
 // =====================================================
 
 // Change these imports at the top of lummet/router.js:
@@ -24,7 +24,7 @@ import {
 
 
 /**
- * Main router for lummet.level.casino
+ * Main router for lummet.cluster.casino
  * Returns null if the request should fall through to the main site
  */
 export async function handleLummetRequest(request, env, ctx) {
@@ -32,7 +32,7 @@ export async function handleLummetRequest(request, env, ctx) {
   const hostname = url.hostname;
 
   // Only handle lummet subdomain
-  if (hostname !== 'lummet.level.casino') return null;
+  if (hostname !== 'lummet.cluster.casino') return null;
 
   const path = url.pathname;
   const method = request.method;
@@ -109,7 +109,7 @@ export async function handleLummetRequest(request, env, ctx) {
 
 function serveIndex(env) {
   // Use the ASSETS binding to serve the HTML file
-  return env.ASSETS.fetch(new Request('https://lummet.level.casino/lummet/index.html'));
+  return env.ASSETS.fetch(new Request('https://lummet.cluster.casino/lummet/index.html'));
 }
 
 

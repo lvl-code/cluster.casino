@@ -1,5 +1,5 @@
 // =====================================================
-// LEVELCASINO TEMPLATE ENGINE
+// CLUSTERCASINO TEMPLATE ENGINE
 // =====================================================
 import { sanitizeHtml } from './sanitize.js';
 import {
@@ -261,17 +261,17 @@ escapeHtml(str = "") {
 }
 
 buildSEO(data = {}) {
-  const title = data.seo_title || "Level.casino — Expert Casino Reviews";
+  const title = data.seo_title || "Cluster.casino — Expert Casino Reviews";
   const description = this.escapeHtml(data.seo_description || "");
   const canonical = data.canonical || "";
-  const ogImage = data.og_image || "https://level.casino/static/images/og-image.png";
+  const ogImage = data.og_image || "https://cluster.casino/static/images/og-image.png";
 
   return `
 <title>${title}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Level.casino">
+<meta property="og:site_name" content="Cluster.casino">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="${canonical}">
 <meta property="og:title" content="${this.escapeHtml(title)}">
@@ -283,8 +283,8 @@ buildSEO(data = {}) {
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${ogImage}">
 <meta name="theme-color" content="#0f172a">
-<meta name="apple-mobile-web-app-title" content="Level.casino">
-<meta name="application-name" content="Level.casino">
+<meta name="apple-mobile-web-app-title" content="Cluster.casino">
+<meta name="application-name" content="Cluster.casino">
 <link rel="mask-icon" href="/static/icon/favicon.svg" color="#0f172a">
 `;
 }
@@ -325,17 +325,17 @@ ${JSON.stringify(schema)}
     schemas.push({
       "@context":"https://schema.org",
       "@type":"Organization",
-      "name":"Level.casino",
-      "url":"https://level.casino",
-      "logo":"https://level.casino/static/images/logo.png"
+      "name":"Cluster.casino",
+      "url":"https://cluster.casino",
+      "logo":"https://cluster.casino/static/images/logo.png"
     });
     
     // Website Schema
     schemas.push({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Level.casino",
-      "url": "https://level.casino"
+      "name": "Cluster.casino",
+      "url": "https://cluster.casino"
     });
 
     if (schema) {

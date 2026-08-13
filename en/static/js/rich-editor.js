@@ -3,7 +3,7 @@
 // =====================================================
 //
 // Single source of truth for all rich text editing in the
-// Level.casino CMS. Used by news, reviews, pages, dynamic
+// Cluster.casino CMS. Used by news, reviews, pages, dynamic
 // pages, static pages, and any future content type.
 //
 // Features:

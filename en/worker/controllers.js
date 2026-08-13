@@ -167,24 +167,24 @@ export async function renderHome(request, env) {
   const homeSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://level.casino",
-    "name": "Level.casino",
+    "url": "https://cluster.casino",
+    "name": "Cluster.casino",
     "description": "Expert casino reviews, exclusive bonuses, and real player data.",
     "publisher": {
       "@type": "Organization",
-      "name": "Level.casino",
+      "name": "Cluster.casino",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://level.casino/static/images/logo.png"
+        "url": "https://cluster.casino/static/images/logo.png"
       }
     }
   };
 
       // Public pages don't need a CSRF token, but set it to empty for the meta tag
   const html = await renderer.render("home.html", {
-    seo_title: dynamicSeo.seo_title || "Level.casino — Expert Casino Reviews & Bonuses",
+    seo_title: dynamicSeo.seo_title || "Cluster.casino — Expert Casino Reviews & Bonuses",
     seo_description: dynamicSeo.seo_description || "Expert casino reviews, exclusive bonuses, and real player data for casinos worldwide.",
-    canonical: dynamicSeo.canonical || "https://level.casino/en",
+    canonical: dynamicSeo.canonical || "https://cluster.casino/en",
     og_image: dynamicSeo.og_image || "",
     casino_cards: buildCasinoCards(available, geoData),
     casino_count: casinoList.length,
@@ -220,23 +220,23 @@ export async function renderHomebackupold(request, env) {
   const homeSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://level.casino",
-    "name": "Level.casino",
+    "url": "https://cluster.casino",
+    "name": "Cluster.casino",
     "description": "Expert casino reviews, exclusive bonuses, and real player data.",
     "publisher": {
       "@type": "Organization",
-      "name": "Level.casino",
+      "name": "Cluster.casino",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://level.casino/static/images/logo.png"
+        "url": "https://cluster.casino/static/images/logo.png"
       }
     }
   };
 
   const html = await renderer.render("home.html", {
-    seo_title: "Level.casino — Expert Casino Reviews & Bonuses",
+    seo_title: "Cluster.casino — Expert Casino Reviews & Bonuses",
     seo_description: "Expert casino reviews, exclusive bonuses, and real player data for casinos worldwide.",
-    canonical: "https://level.casino/en",
+    canonical: "https://cluster.casino/en",
     casino_cards: buildCasinoCards(available, geoData),
     casino_count: casinoList.length,
     hidden_casino_cards: buildCasinoCards(others, geoData),
@@ -289,8 +289,8 @@ export async function renderCasino(request, env, slug) {
     "itemReviewed": {
       "@type": "Casino",
       "name": casino.name,
-      "image": casino.logo || "https://level.casino/static/images/logo.png",
-      "url": `https://level.casino/en/casino/${slug}`
+      "image": casino.logo || "https://cluster.casino/static/images/logo.png",
+      "url": `https://cluster.casino/en/casino/${slug}`
     },
     "reviewRating": {
       "@type": "Rating",
@@ -300,21 +300,21 @@ export async function renderCasino(request, env, slug) {
     },
     "author": {
       "@type": "Organization",
-      "name": "Level.casino Expert Team"
+      "name": "Cluster.casino Expert Team"
 
     },
     "publisher": {
     "@type": "Organization",
-    "name": "Level.casino",
-    "url": "https://level.casino",
+    "name": "Cluster.casino",
+    "url": "https://cluster.casino",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://level.casino/static/images/logo.png"
+      "url": "https://cluster.casino/static/images/logo.png"
      }
     },
     "mainEntityOfPage": {
   "@type": "WebPage",
-  "@id": `https://level.casino/en/casino/${slug}`
+  "@id": `https://cluster.casino/en/casino/${slug}`
 },
   "datePublished": casino.created_at
   ? new Date(casino.created_at).toISOString()
@@ -336,7 +336,7 @@ export async function renderCasino(request, env, slug) {
     components_sidebar: allComponents.sidebar,
     seo_title: dynamicSeo.seo_title || casino.seo_title || casino.name,
     seo_description: dynamicSeo.seo_description || casino.seo_description || "",
-    canonical: dynamicSeo.canonical || `https://level.casino/en/casino/${slug}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/casino/${slug}`,
     rating_display: ratingDisplay,
     features_html: featuresHtml,
     bonus_title: casino.bonus_title || "Welcome Bonus",
@@ -719,7 +719,7 @@ if (review.casino_slug) {
       "@type": "Casino",
       "name": casino?.name || casinoName || review.title,
      // "name": review.title.replace("Review", "").trim(),
-      "url": `https://level.casino/en/review/${slug}`
+      "url": `https://cluster.casino/en/review/${slug}`
     },
     "author": {
       "@type": "Person",
@@ -727,11 +727,11 @@ if (review.casino_slug) {
     },
   "publisher": {
   "@type": "Organization",
-  "name": "Level.casino",
-  "url": "https://level.casino",
+  "name": "Cluster.casino",
+  "url": "https://cluster.casino",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://level.casino/static/images/logo.png"
+    "url": "https://cluster.casino/static/images/logo.png"
   }
 },
 "datePublished": review.created_at
@@ -770,7 +770,7 @@ if (review.casino_slug) {
     review_blocks_html: reviewBlocksHtml,
     seo_title: dynamicSeo.seo_title || review.seo_title || review.title,
     seo_description: dynamicSeo.seo_description || review.seo_description || "",
-    canonical: dynamicSeo.canonical || `https://level.casino/en/review/${slug}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/review/${slug}`,
     faq_html: faqHtml,
     pros_html: prosHtml,
     cons_html: consHtml,
@@ -809,7 +809,7 @@ export async function renderNews(request, env, slug) {
   };
   const html = await renderer.render("news.html", {
     ...article,
-    canonical: dynamicSeo.canonical || `https://level.casino/en/news/${slug}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/news/${slug}`,
     author_name: author?.name || article.author || "",
     author_avatar: author?.avatar_url || "",
     author_role: author?.role || "",
@@ -913,7 +913,7 @@ export async function renderDashboardPage(request, env) {
 
     const html = await renderer.render("users/dashboard.html", {
         seo_title: "Dashboard",
-        seo_description: "Level.casino Dashboard",
+        seo_description: "Cluster.casino Dashboard",
         email: user.email,
         role: user.role
     });
@@ -946,7 +946,7 @@ export async function renderDashboardPagebackup(request, env) {
 
     const html = await renderer.render(template, {
         seo_title: "Dashboard",
-        seo_description: "Level.casino Dashboard",
+        seo_description: "Cluster.casino Dashboard",
         email: user.email,
         role: user.role
     });
@@ -997,14 +997,14 @@ export function robots() {
     `User-agent: *
 Allow: /
 
-Sitemap: https://level.casino/en/sitemap-index.xml
-Sitemap: https://level.casino/en/sitemap.xml
-Sitemap: https://level.casino/en/sitemap-casinos.xml
-Sitemap: https://level.casino/en/sitemap-reviews.xml
-Sitemap: https://level.casino/en/sitemap-news.xml
-Sitemap: https://level.casino/en/sitemap-categories.xml
-Sitemap: https://level.casino/en/sitemap-countries.xml
-Sitemap: https://level.casino/en/sitemap-pages.xml`,
+Sitemap: https://cluster.casino/en/sitemap-index.xml
+Sitemap: https://cluster.casino/en/sitemap.xml
+Sitemap: https://cluster.casino/en/sitemap-casinos.xml
+Sitemap: https://cluster.casino/en/sitemap-reviews.xml
+Sitemap: https://cluster.casino/en/sitemap-news.xml
+Sitemap: https://cluster.casino/en/sitemap-categories.xml
+Sitemap: https://cluster.casino/en/sitemap-countries.xml
+Sitemap: https://cluster.casino/en/sitemap-pages.xml`,
     {
       headers: {
         "Content-Type": "text/plain"
@@ -1035,7 +1035,7 @@ export async function renderCountry(request, env, slug) {
     "itemListElement": casinoList.map((c, index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "url": `https://level.casino/en/casino/${c.slug}`
+      "url": `https://cluster.casino/en/casino/${c.slug}`
     }))
   };
 
@@ -1050,7 +1050,7 @@ export async function renderCountry(request, env, slug) {
     components_sidebar: allComponents.sidebar,
     seo_title: dynamicSeo.seo_title || countryData.seo_title || countryData.name + " Online Casinos",
     seo_description: dynamicSeo.seo_description || countryData.seo_description || "",
-    canonical: dynamicSeo.canonical || `https://level.casino/en/country/${code}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/country/${code}`,
     casino_cards: buildCasinoCards(casinoList, geoData),
   }, countrySchema, buildBreadcrumbs("country", { name: countryData.name }));
   return new Response(html, {
@@ -1075,7 +1075,7 @@ export async function renderCategory(request, env, slug) {
     "itemListElement": sortedCasinos.map((c, index) => ({
       "@type": "ListItem",
       "position": index + 1,
-      "url": `https://level.casino/en/casino/${c.slug}`
+      "url": `https://cluster.casino/en/casino/${c.slug}`
     }))
   };
 
@@ -1090,7 +1090,7 @@ export async function renderCategory(request, env, slug) {
     components_sidebar: allComponents.sidebar,
     seo_title: dynamicSeo.seo_title || category.seo_title || category.name + " Casinos",
     seo_description: dynamicSeo.seo_description || category.seo_description || "",
-    canonical: dynamicSeo.canonical || `https://level.casino/en/category/${slug}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/category/${slug}`,
     category: category.name,
     description: category.description,
     casino_cards: buildCasinoCards(sortedCasinos, geoData),
@@ -1138,7 +1138,7 @@ export async function renderDynamicPage(request, env, slug) {
   };
   const html = await renderer.render("page.html", {
     ...page,
-    canonical: dynamicSeo.canonical || `https://level.casino/en/${slug}`,
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/${slug}`,
     author_name: author?.name || "",
     author_avatar: author?.avatar_url || "",
     author_role: author?.role || "",
@@ -1193,8 +1193,8 @@ export async function renderLogin(
         seo_title:
           "Login",
         seo_description:
-          "Level.casino Login",
-        canonical: "https://level.casino/en/login"
+          "Cluster.casino Login",
+        canonical: "https://cluster.casino/en/login"
       }
     );
 
@@ -1225,8 +1225,8 @@ export async function renderRegister(
         seo_title:
           "Register",
         seo_description:
-          "Create Level.casino account",
-        canonical: "https://level.casino/en/register"
+          "Create Cluster.casino account",
+        canonical: "https://cluster.casino/en/register"
       }
     );
 
@@ -1247,7 +1247,7 @@ export async function render404(request, env) {
 
   const html = await renderer.render("404.html", {
     seo_title: "404 - Page Not Found",
-    seo_description: "Sorry, this page does not exist on Level.casino."
+    seo_description: "Sorry, this page does not exist on Cluster.casino."
   });
 
   return new Response(html, {
@@ -1272,12 +1272,12 @@ export async function renderCasinoList(request, env) {
     "name": "Complete Directory of Online Casinos",
     "itemListElement": sortedCasinos.map((c, idx) => ({
       "@type": "ListItem", "position": idx + 1,
-      "url": `https://level.casino/en/casino/${c.slug}`
+      "url": `https://cluster.casino/en/casino/${c.slug}`
     }))
   };
     // Public pages don't need a CSRF token, but set it to empty for the meta tag
   const html = await renderer.render("category.html", {
-    canonical: dynamicSeo.canonical || "https://level.casino/en/casino",
+    canonical: dynamicSeo.canonical || "https://cluster.casino/en/casino",
     category: "All Casinos",
     description: "Browse our complete directory of reviewed online casinos.",
     casino_cards: buildCasinoCards(sortedCasinos, geoData),
@@ -1286,7 +1286,7 @@ export async function renderCasinoList(request, env) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || "All Online Casinos — Level.casino",
+    seo_title: dynamicSeo.seo_title || "All Online Casinos — Cluster.casino",
     seo_description: dynamicSeo.seo_description || "Complete directory of reviewed online casinos with bonuses and ratings."
   }, listSchema, buildBreadcrumbs("casinoList"));
 
@@ -1370,12 +1370,12 @@ export async function renderReviewList(request, env) {
     "name": "All Casino Reviews",
     "itemListElement": reviews.map((r, idx) => ({
       "@type": "ListItem", "position": idx + 1,
-      "url": `https://level.casino/en/review/${r.slug}`
+      "url": `https://cluster.casino/en/review/${r.slug}`
     }))
   };
       // Public pages don't need a CSRF token, but set it to empty for the meta tag
   const html = await renderer.render("category.html", {
-    canonical: dynamicSeo.canonical || "https://level.casino/en/review",
+    canonical: dynamicSeo.canonical || "https://cluster.casino/en/review",
     category: "All Reviews",
     description: "Browse our complete collection of casino reviews.",
     casino_cards: reviewCards,
@@ -1384,7 +1384,7 @@ export async function renderReviewList(request, env) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || "All Casino Reviews — Level.casino",
+    seo_title: dynamicSeo.seo_title || "All Casino Reviews — Cluster.casino",
     seo_description: dynamicSeo.seo_description || "In-depth casino reviews with pros, cons, and ratings."
   }, listSchema, buildBreadcrumbs("reviewList"));
 
@@ -1411,12 +1411,12 @@ export async function renderNewsList(request, env) {
     "name": "iGaming Industry News Feed",
     "itemListElement": newsList.map((n, idx) => ({
       "@type": "ListItem", "position": idx + 1,
-      "url": `https://level.casino/en/news/${n.slug}`
+      "url": `https://cluster.casino/en/news/${n.slug}`
     }))
   };
       // Public pages don't need a CSRF token, but set it to empty for the meta tag
   const html = await renderer.render("category.html", {
-    canonical: dynamicSeo.canonical || "https://level.casino/en/news",
+    canonical: dynamicSeo.canonical || "https://cluster.casino/en/news",
     category: "Latest News",
     description: "Latest iGaming industry news and updates.",
     casino_cards: `<div class="news-grid">${newsCards}</div>`,
@@ -1425,7 +1425,7 @@ export async function renderNewsList(request, env) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || "Casino News — Level.casino",
+    seo_title: dynamicSeo.seo_title || "Casino News — Cluster.casino",
     seo_description: dynamicSeo.seo_description || "Latest iGaming and online casino industry news."
   }, listSchema, buildBreadcrumbs("newsList"));
 
@@ -1503,18 +1503,18 @@ export async function renderUpdatesList(request, env) {
   const listSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Level.casino Platform Updates",
+    "name": "Cluster.casino Platform Updates",
     "description":
       dynamicSeo.seo_description ||
-      "Latest updates, improvements, features and announcements from Level.casino.",
-    "url": "https://level.casino/en/updates",
+      "Latest updates, improvements, features and announcements from Cluster.casino.",
+    "url": "https://cluster.casino/en/updates",
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": updates.map((update, index) => ({
         "@type": "ListItem",
         "position": index + 1,
         "url":
-          `https://level.casino/en/updates/${update.slug}`,
+          `https://cluster.casino/en/updates/${update.slug}`,
         "name": update.title
       }))
     }
@@ -1525,13 +1525,13 @@ export async function renderUpdatesList(request, env) {
     {
       canonical:
         dynamicSeo.canonical ||
-        "https://level.casino/en/updates",
+        "https://cluster.casino/en/updates",
 
       category: "Platform Updates",
 
       description:
         dynamicSeo.seo_description ||
-        "Latest Level.casino platform updates, new features, improvements and announcements.",
+        "Latest Cluster.casino platform updates, new features, improvements and announcements.",
 
       update_cards:
         updateCards,
@@ -1553,11 +1553,11 @@ export async function renderUpdatesList(request, env) {
 
       seo_title:
         dynamicSeo.seo_title ||
-        "Platform Updates — Level.casino",
+        "Platform Updates — Cluster.casino",
 
       seo_description:
         dynamicSeo.seo_description ||
-        "Latest Level.casino platform updates, new features, improvements and announcements."
+        "Latest Cluster.casino platform updates, new features, improvements and announcements."
     },
     listSchema,
     buildBreadcrumbs("updatesList")
@@ -1628,19 +1628,19 @@ export async function renderUpdate(request, env, slug) {
       "@type": "Person",
       "name":
         update.author_name ||
-        "Level.casino"
+        "Cluster.casino"
     },
 
     "publisher": {
       "@type": "Organization",
-      "name": "Level.casino",
-      "url": "https://level.casino"
+      "name": "Cluster.casino",
+      "url": "https://cluster.casino"
     },
 
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id":
-        `https://level.casino/en/updates/${slug}`
+        `https://cluster.casino/en/updates/${slug}`
     }
   };
 
@@ -1651,7 +1651,7 @@ export async function renderUpdate(request, env, slug) {
 
       canonical:
         dynamicSeo.canonical ||
-        `https://level.casino/en/updates/${slug}`,
+        `https://cluster.casino/en/updates/${slug}`,
 
       author_name:
         update.author_name || "",
@@ -1721,8 +1721,8 @@ async function renderAdminPage(request, env, template, extraData = {}) {
   // Load shared admin navigation
   const adminNav = await renderer.loadTemplate("layout/admin-nav.html");
   const html = await renderer.render(template, {
-      seo_title: "Admin — Level.casino",
-      seo_description: "Level.casino CMS Admin",
+      seo_title: "Admin — Cluster.casino",
+      seo_description: "Cluster.casino CMS Admin",
 
       email: user.email,
       role: user.role,
@@ -1775,7 +1775,7 @@ async function renderUserPage(request, env, template) {
 
   const renderer = new Renderer(env, request);
   const html = await renderer.render(template, {
-    seo_title: "Level.casino — Dashboard",
+    seo_title: "Cluster.casino — Dashboard",
     seo_description: "Manage your account",
     email: user.email,
     role: user.role
@@ -1825,7 +1825,7 @@ export async function renderCategoryList(request, env) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || "Casino Categories — Level.casino",
+    seo_title: dynamicSeo.seo_title || "Casino Categories — Cluster.casino",
     seo_description: dynamicSeo.seo_description || "Browse online casinos by category."
   }, {}, buildBreadcrumbs("categoryList"));
 
@@ -1851,7 +1851,7 @@ export async function renderCountryList(request, env) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || "Online Casinos by Country — Level.casino",
+    seo_title: dynamicSeo.seo_title || "Online Casinos by Country — Cluster.casino",
     seo_description: dynamicSeo.seo_description || "Find online casinos available in your country."
   }, {}, buildBreadcrumbs("countryList"));
 
@@ -1952,9 +1952,9 @@ export async function renderAuthor(request, env, slug) {
     components_content_bottom: allComponents.content_bottom,
     components_bottom: allComponents.bottom,
     components_sidebar: allComponents.sidebar,
-    seo_title: dynamicSeo.seo_title || author.name + " — Level.casino",
-    seo_description: dynamicSeo.seo_description || author.bio || author.name + " is a " + (author.role || "editor") + " at Level.casino.",
-    canonical: dynamicSeo.canonical || `https://level.casino/en/author/${slug}`
+    seo_title: dynamicSeo.seo_title || author.name + " — Cluster.casino",
+    seo_description: dynamicSeo.seo_description || author.bio || author.name + " is a " + (author.role || "editor") + " at Cluster.casino.",
+    canonical: dynamicSeo.canonical || `https://cluster.casino/en/author/${slug}`
   }, authorSchema, [{ label: "Home", url: "/en" }, { label: "Authors", url: null }, { label: author.name, url: null }]);
 
   return new Response(html, { headers: cacheHeaders() });
@@ -2033,16 +2033,16 @@ export async function renderSitemapPage(request, env) {
   const sitemapSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Level.casino Sitemap",
+    "name": "Cluster.casino Sitemap",
     "description": "Explore casino reviews, rankings, guides and industry news."
   };
       // Public pages don't need a CSRF token, but set it to empty for the meta tag
   const html = await renderer.render(
     "sitemap.html",
     {
-      seo_title: "Level.casino Sitemap",
+      seo_title: "Cluster.casino Sitemap",
       seo_description: "Explore casino reviews, rankings, guides and industry news.",
-      title: "Level.casino Sitemap"
+      title: "Cluster.casino Sitemap"
     },
     sitemapSchema,
     buildBreadcrumbs("page", {
