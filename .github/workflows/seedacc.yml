@@ -1,0 +1,87 @@
+name: Seed Initial Admin Account
+
+on:
+  workflow_dispatch:
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Generate password hash
+        id: hash
+        shell: bash
+        run: |
+          node <<'NODE' > /tmp/admin-seed.txt
+          const crypto = require("crypto");
+
+          const email = "admin@cluster.casino";
+          const password = "18MilKyBM$";
+
+          const salt = crypto.randomBytes(16);
+
+          const hash = crypto.pbkdf2Sync(
+            Buffer.from(password, "utf8"),
+            salt,
+            100000,
+            32,
+            "sha256"
+          );
+
+          const saltHex = salt.toString("hex");
+          const hashHex = hash.toString("hex");
+          const passwordHash = `${saltHex}:${hashHex}`;
+
+          console.log(`EMAIL=${email}`);
+          console.log(`PASSWORD=${password}`);
+          console.log(`HASH=${passwordHash}`);
+          NODE
+
+          cat /tmp/admin-seed.txt
+
+          EMAIL=$(grep '^EMAIL=' /tmp/admin-seed.txt | cut -d= -f2-)
+          PASSWORD=$(grep '^PASSWORD=' /tmp/admin-seed.txt | cut -d= -f2-)
+          HASH=$(grep '^HASH=' /tmp/admin-seed.txt | cut -d= -f2-)
+
+          echo "email=$EMAIL" >> "$GITHUB_OUTPUT"
+          echo "password=$PASSWORD" >> "$GITHUB_OUTPUT"
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
+      - name: Seed admin into clustercasino-db
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: >
+            d1 execute clustercasino-db
+            --remote
+            --command="INSERT INTO users (email, password_hash, role)
+            SELECT '${{ steps.hash.outputs.email }}',
+            '${{ steps.hash.outputs.hash }}',
+            'admin'
+            WHERE NOT EXISTS
+            (SELECT 1 FROM users WHERE role = 'admin')
+            AND NOT EXISTS
+            (SELECT 1 FROM users WHERE email = '${{ steps.hash.outputs.email }}');"
+
+      - name: Show seeded credentials
+        run: |
+          echo "========================================"
+          echo " INITIAL CLUSTER.CASINO ADMIN"
+          echo "========================================"
+          echo "Email:    ${{ steps.hash.outputs.email }}"
+          echo "Password: ${{ steps.hash.outputs.password }}"
+          echo "Hash:     ${{ steps.hash.outputs.hash }}"
+          echo "Role:     admin"
+          echo "Database: clustercasino-db"
+          echo "========================================"
+          echo "CHANGE THE PASSWORD AFTER FIRST LOGIN."
