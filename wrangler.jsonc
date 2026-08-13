@@ -1,5 +1,5 @@
 {
-  "name": "levelcasino",
+  "name": "clustercasino",
   "main": "en/worker/index.js",
   "compatibility_date": "2024-04-01",
   "compatibility_flags": [
@@ -11,13 +11,11 @@
     "directory": "./en",
     "run_worker_first": true
   },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "levelcasino-db",
-      "database_id": "8e68c1f7-e284-415c-a67c-6ba0c5d0a1f8"
-    }
-  ],
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "clustercasino-db",
+    "database_id": "73c5c49d-e70a-4270-a97e-db3ceefedc31"
+ }],
   "ai": {
     "binding": "AI"
   },

@@ -1,0 +1,11 @@
+{
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10007,
+      "message": "This Worker does not exist on your account."
+    }
+  ],
+  "messages": []
+}
