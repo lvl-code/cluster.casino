@@ -29,7 +29,7 @@
   "r2_buckets": [
     {
       "binding": "MEDIA_BUCKET",
-      "bucket_name": "level-casino-media"
+      "bucket_name": "cluster-casino-media"
     }
   ],
 
