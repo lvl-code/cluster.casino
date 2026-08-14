@@ -283,7 +283,6 @@ buildSEO(data = {}) {
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${ogImage}">
 <meta name="theme-color" content="#0f172a">
-<meta name="apple-mobile-web-app-title" content="Cluster.casino">
 <meta name="application-name" content="Cluster.casino">
 <link rel="mask-icon" href="/static/icon/favicon.svg" color="#0f172a">
 `;
